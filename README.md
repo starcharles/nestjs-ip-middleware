@@ -1,6 +1,6 @@
-# Nest.js real ip Middleware
+# Nest.js real IP Middleware
 
-A middleware for retrieving an IP address from http request and attach 'realIp' field to req.
+A middleware for retrieving a users' real IP address from http request and attach 'realIp' field to req.
 
 [![NPM package link](https://nodei.co/npm/nestjs-ip-middlewa.png?downloads=true&cacheBust=2)](https://www.npmjs.com/package/nestjs-ip-middleware)
 
@@ -33,12 +33,28 @@ export class AppModule implements NestModule {
 }
 ```
 
+## Example Usage at Controller
+
+```typescript
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get('real-ip')
+  getIp(@Req() req: Request): string {
+    return req['realIp']; // req.realIp is set by this middleware
+  }
+}
+
+
+```
+
 ## Special Thanks
-This middleware is built using 'request-ip' library.
+This middleware built using awesome 'request-ip' library.
 
 ## License
 The code is under MIT license. See the LICENSE file for details.
 
 ## TODO
 - add tests
-- gihub actions(CI/CD)
+- introduce GitHub actions(CI/CD)
