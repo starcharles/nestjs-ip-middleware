@@ -14,15 +14,18 @@ jobs:
     name: Build and Test(Node ${{ matrix.node }} on ${{ matrix.os }})
     runs-on: ${{matrix.os}}
     steps:
+      - env:
+          CI: true
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
-      - run: npm run lint
       - run: npm install
+      - run: npm run lint
       - run: npm run build
-      - run: npm test
+      - name: Test
+        run: npm test
       - name: Show coverage in comments
         uses: ziishaned/jest-reporter-action@v0.0.1
         with:
