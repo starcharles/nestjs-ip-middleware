@@ -1,15 +1,26 @@
 {
-  "name": "request-ip-middleware",
+  "name": "nestjs-ip-middleware",
   "version": "0.0.1",
   "description": "A middleware for retrieving an IP address from http request and attach 'realIp' field to req.",
   "author": "Naoto Satoh <stardustforever012@gmail.com>",
-  "private": true,
   "license": "MIT",
+  "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix && prettier --write \"{src,test}/**/*.ts\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:cov": "jest --coverage"
+    "test:cov": "jest --coverage",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "homepage": "https://github.com/starcharles/nestjs-ip-middleware",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/starcharles/nestjs-ip-middleware"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
@@ -57,7 +68,6 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "main": "index.ts",
   "directories": {
     "test": "test"
   }
