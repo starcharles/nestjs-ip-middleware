@@ -41,3 +41,4 @@ The code is under MIT license. See the LICENSE file for details.
 
 ## TODO
 - add tests
+- gihub actions(CI/CD)
