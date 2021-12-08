@@ -1,1 +1,1 @@
-export * from './request-ip.middleware'
+export * from './request-ip.middleware';

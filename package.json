@@ -1,6 +1,6 @@
 {
   "name": "nestjs-ip-middleware",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A middleware for retrieving an IP address from http request and attach 'realIp' field to req.",
   "author": "Naoto Satoh <stardustforever012@gmail.com>",
   "license": "MIT",
