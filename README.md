@@ -57,4 +57,3 @@ The code is under MIT license. See the LICENSE file for details.
 
 ## TODO
 - add tests
-- introduce GitHub actions(CI/CD)
