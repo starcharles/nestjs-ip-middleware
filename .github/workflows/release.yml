@@ -23,7 +23,6 @@ jobs:
           node-version: ${{env.node-version}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-      - name: release
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
         if: ${{!env.ACT}}
         run: npm run semantic-release
