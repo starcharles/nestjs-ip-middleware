@@ -42,4 +42,4 @@ jobs:
         uses: hayuna/jest-reporter-action@v0.1.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          test-command: npm test -- --coverage
+          test-command: npx jest --coverage
