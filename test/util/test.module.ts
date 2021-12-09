@@ -1,6 +1,6 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
-import { RequestIpMiddleware } from '../../dist';
 import { TestController } from './test.controller';
+import { RequestIpMiddleware } from '../../src';
 
 @Module({
   imports: [],
