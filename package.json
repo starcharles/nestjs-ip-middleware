@@ -23,6 +23,16 @@
     "type": "git",
     "url": "https://github.com/starcharles/nestjs-ip-middleware"
   },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
+  },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
@@ -44,6 +54,7 @@
     "eslint": "7.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
+    "git-cz": "^4.8.0",
     "husky": "^7.0.4",
     "jest": "26.0.1",
     "prettier": "^1.19.1",
@@ -71,5 +82,10 @@
   },
   "directories": {
     "test": "test"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
   }
 }
