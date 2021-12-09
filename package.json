@@ -5,6 +5,7 @@
   "author": "Naoto Satoh <stardustforever012@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
+  "repositoryUrl": "https://github.com/starcharles/nestjs-ip-middleware",
   "scripts": {
     "build": "tsc",
     "prepare": "husky install",
