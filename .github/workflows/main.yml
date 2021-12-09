@@ -30,12 +30,8 @@ jobs:
         run: npm run build
       - name: test
         run: npm test
-#      - name: Show coverage in comments
-#        uses: hayuna/jest-reporter-action@v0.1.2
-#        with:
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          test-command: npm test -- --coverage
-#      - name: Release
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: npm run semantic-release
+      - name: Show coverage in comments
+        uses: hayuna/jest-reporter-action@v0.1.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          test-command: npm test -- --coverage
