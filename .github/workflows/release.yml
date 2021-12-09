@@ -18,11 +18,8 @@ jobs:
           cache: npm
       - run: npm install
       - name: Release
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{env.node-version}}
+        if: ${{!env.ACT}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
-        if: ${{!env.ACT}}
         run: npm run semantic-release
