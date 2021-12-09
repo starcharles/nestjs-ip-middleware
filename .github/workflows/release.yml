@@ -4,7 +4,7 @@ on:
     branches:
       - master
 jobs:
-  build:
+  relase:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -15,4 +15,4 @@ jobs:
           node-version: '14.16.0'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run semantic-release
+      - run: npm run semantic-release
