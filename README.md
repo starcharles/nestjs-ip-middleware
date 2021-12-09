@@ -42,7 +42,7 @@ export class AppController {
 
   @Get('real-ip')
   getIp(@Req() req: Request): string {
-    return req['realIp']; // req.realIp is set by this middleware
+    return req.realIp; // req.realIp is set by this middleware
   }
 }
 
@@ -54,6 +54,3 @@ This middleware built using awesome 'request-ip' library.
 
 ## License
 The code is under MIT license. See the LICENSE file for details.
-
-## TODO
-- add tests
