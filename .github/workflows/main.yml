@@ -1,7 +1,10 @@
-name: CI
-
+name: CI/CD
 on:
   push:
+    branches:
+      - master
+      - develop
+  pull_request:
     branches:
       - master
       - develop
@@ -9,22 +12,30 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ ubuntu-20.04, windows-latest, macos-latest ]
-        node: [ '12', '14', '16' ]
-    name: Build and Test(Node ${{ matrix.node }} on ${{ matrix.os }})
+        os: [ ubuntu-20.04, macos-latest ]
+        node: [ '14', '16' ]
     runs-on: ${{matrix.os}}
+    name: Build and Test(Node ${{ matrix.node }} on ${{ matrix.os }})
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
-      - run: npm run lint
       - run: npm install
-      - run: npm run build
-      - run: npm test
-      - name: Show coverage in comments
-        uses: ziishaned/jest-reporter-action@v0.0.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          test-command: npm run jest --coverage
+      - run: npm run lint
+      - name: build
+        run: npm run build
+      - name: test
+        run: npm test
+#      - name: Show coverage in comments
+#        uses: hayuna/jest-reporter-action@v0.1.2
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          test-command: npm test -- --coverage
+#      - name: Release
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        run: npm run semantic-release
