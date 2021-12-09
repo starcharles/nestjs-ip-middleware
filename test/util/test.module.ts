@@ -8,7 +8,7 @@ import { TestController } from './test.controller';
   controllers: [TestController],
 })
 export class TestModule {
-  configure(consumer: MiddlewareConsumer) {
+  configure(consumer: MiddlewareConsumer): void {
     consumer.apply(RequestIpMiddleware).forRoutes('*');
   }
 }
