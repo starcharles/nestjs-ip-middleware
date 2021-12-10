@@ -30,7 +30,7 @@ jobs:
       - name: test
         run: npm test
       - name: Show coverage in comments
-        if: ${{ !env.ACT }}
+        if: ${{ !env.ACT && github.event_name == 'pull_request' }}
         uses: hayuna/jest-reporter-action@v0.1.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
